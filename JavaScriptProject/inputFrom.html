@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form id="test-register" action="#" target="_blank" onsubmit="return checkRegisterForm()">
+    <p id="test-error" style="color:red"></p>
+    <p>
+        用户名: <input type="text" id="username" name="username">
+    </p>
+    <p>
+        口令: <input type="password" id="password" name="password">
+    </p>
+    <p>
+        重复口令: <input type="password" id="password-2">
+    </p>
+    <p>
+        <button type="submit">提交</button> <button type="reset">重置</button>
+    </p>
+</form>
+  </body>
+  <script type="text/javascript">
+  var usenameNorm = /^[a-zA-Z0-9_]{3,10}$/ ;
+  var passwordNorm =/^[0-9a-zA-Z]{6,20}$/;
+  var usename = document.getElementById('username');
+  var password = document.getElementById('password');
+  var passwordfb = document.getElementById('password-2');
+  //var teststr = 'a123sd';
+  //console.log(usenameNorm.test(teststr));
+  var checkRegisterForm = function () {
+    if(usenameNorm.test(usename.value) && passwordNorm.test(password.value) && password.value == passwordfb.value){
+      alert(1)
+      return true;
+    }
+    return false;
+  }
+  
+  </script>
+</html>
