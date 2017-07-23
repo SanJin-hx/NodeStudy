@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="test-div">
+    <ul>
+        <li><span>JavaScript</span></li>
+        <li><span>Python</span></li>
+        <li><span>Swift</span></li>
+    </ul>
+</div>
+  </body>
+  <script type="text/javascript">
+  $('#test-div ul').append('<li><span>Pascal</span></li>','<li><span>Lua</span></li>','<li><span>Ruby</span></li>');
+  var list = $('#test-div ul li')
+  var listfb = [];
+  for (var x =0;x < list.length ;x++) {
+    listfb[x] = list[x].innerText;
+    //console.log(list[x].innerText);
+  }
+    listfb.sort();
+    console.log(listfb);
+    for (var i = 0; i < listfb.length; i++) {
+      list.eq(i).text(listfb[i]);
+    }
+    //console.log(list.eq(0).text());
+  (function () {
+  var s = $('#test-div>ul>li').map(function () {
+      return $(this).text();
+  }).get().join(',');
+  if (s === 'JavaScript,Lua,Pascal,Python,Ruby,Swift') {
+      alert('测试通过!');
+  } else {
+      alert('测试失败: ' + s);
+  }
+})();
+  </script>
+</html>
